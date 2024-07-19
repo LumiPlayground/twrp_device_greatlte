@@ -8,7 +8,3 @@
 
 # ADD FOR GOTA
 /dev/block/platform/11120000.ufs/by-name/MISC           /misc       emmc    defaults
-
-# VOLD :: fstab.samsungexynos8895
-/devices/platform/11500000.dwmmc2/mmc_host*             auto        vfat    defaults    voldmanaged=sdcard:auto
-/devices/platform/10c00000.usb/10c00000.dwc3*		auto        auto    defaults    voldmanaged=usb:auto
