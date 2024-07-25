@@ -1,10 +1,17 @@
 # Android fstab file.
 
 # mount point  fstype device                                   device2              flags
-/system         ext4   /dev/block/platform/11120000.ufs/by-name/SYSTEM        flags=backup=1;wipeingui;display="System"
-/system_image   emmc   /dev/block/platform/11120000.ufs/by-name/SYSTEM		flags=backup=1;flashimg=1;display="System Image"
-/vendor         ext4   /dev/block/platform/11120000.ufs/by-name/VENDOR        flags=backup=1;wipeingui;display="Vendor"
-/vendor_image   emmc   /dev/block/platform/11120000.ufs/by-name/SYSTEM		flags=backup=1;flashimg=1;display="Vendor Image"
+/system         ext4   /dev/block/mapper/system        wait,logical,flags=backup=1;display="System";
+/vendor         ext4   /dev/block/mapper/vendor        wait,logical,flags=backup=1;display="Vendor";
+/product        ext4   /dev/block/mapper/product        wait,logical,flags=backup=1;display="Product";
+/odm            ext4   /dev/block/mapper/odm        wait,logical,flags=backup=1;display="ODM";
+
+/system_image   emmc   /dev/block/mapper/system        flags=backup=1;display="System Image";flashimg=1;
+/vendor_image   emmc   /dev/block/mapper/vendor        flags=backup=1;display="Vendor Image";flashimg=1;
+/product_image  emmc   /dev/block/mapper/product        flags=backup=1;display="Product Image";flashimg=1;
+/odm_image      emmc   /dev/block/mapper/odm        flags=backup=1;display="ODM Image";flashimg=1;
+
+/metadata         ext4   /dev/block/platform/11120000.ufs/by-name/HIDDEN        flags=display="Metadata"
 /boot           emmc   /dev/block/platform/11120000.ufs/by-name/BOOT		    flags=backup=1;flashimg=1
 /recovery       emmc   /dev/block/platform/11120000.ufs/by-name/RECOVERY      flags=backup=1;flashimg=1
 /cache          ext4   /dev/block/platform/11120000.ufs/by-name/CACHE         flags=display="Cache"
