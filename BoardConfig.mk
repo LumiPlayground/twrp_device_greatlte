@@ -24,6 +24,11 @@ TARGET_2ND_CPU_VARIANT := cortex-a53
 TARGET_BOARD_PLATFORM := exynos5
 TARGET_BOOTLOADER_BOARD_NAME := universal8895
 
+BOARD_BOOTCONFIG := \
+    androidboot.selinux=permissive \
+    printk.devkmsg=on \
+    loop.max_part=7 
+
 # Kernel
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_IMAGE_NAME := Image
@@ -36,7 +41,13 @@ BOARD_MKBOOTIMG_ARGS := \
     --kernel_offset 0x00008000 \
     --ramdisk_offset 0x01000000 \
     --tags_offset 0x00000100 \
-    --header_version 1
+    --header_version 4
+
+# Must be added in exynos8895_defconfig
+# CONFIG_CMDLINE="bootconfig"
+
+BOARD_KERNEL_CMDLINE := \
+    bootconfig
 
 # Filesystem
 BOARD_HAS_LARGE_FILESYSTEM := true
