@@ -7,3 +7,5 @@
 
 # Python prebuilts
 TW_EXCLUDE_PYTHON := true
+
+PRODUCT_BUILD_VENDOR_RAMDISK_IMAGE := true
